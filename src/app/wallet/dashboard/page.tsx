@@ -57,7 +57,7 @@ export default function WalletSection() {
       }
     };
     executeWalletAction();
-  }, [shouldGenerate]);
+  });
 
   const generateWallet = async () => {
     const seed = userSeed
@@ -94,7 +94,7 @@ export default function WalletSection() {
     return eth;
 }
 
-  const getBalance = async (publicKey: String) => {
+  const getBalance = async (publicKey: string) => {
     if (name == "solana"){
       const response = await axios.post(solanaAPI, {
         "jsonrpc": "2.0",
