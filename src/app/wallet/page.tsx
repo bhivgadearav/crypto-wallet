@@ -6,8 +6,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
 import { currency } from "../store/currency"
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function MainSection() {
+    const { toast } = useToast() 
     const router = useRouter();
     const [home, setHome] = useState(true);
     const [value, setValue] = useRecoilState(currency);
@@ -35,6 +38,16 @@ export default function MainSection() {
             router.push("/wallet/dashboard");
           }
     }
+
+    const handleScrollToSection = () => {
+      const section = document.getElementById('home-heading');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        toast({
+          title: "Click A Currency Name",
+        })
+      }
+    };
   return (
     generateClicked ? (<div className="loadinng-container">
       <style>
@@ -94,9 +107,10 @@ export default function MainSection() {
     </div>) : (home ? 
     (
         <main className="flex-grow">
+          <Toaster />
           <div className="container mx-auto px-4 py-20">
             <section className="text-center mb-20">
-              <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient-x">
+              <h2 id="home-heading" className="text-5xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient-x">
                 Welcome to Nebula Vault
               </h2>
               <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
@@ -141,7 +155,8 @@ export default function MainSection() {
               <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                 Join thousands of users who trust Nebula Vault for their cryptocurrency management needs.
               </p>
-              <Button className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white hover:from-purple-500 hover:via-pink-600 hover:to-red-600 text-lg px-10 py-6 rounded-full transition-all duration-300 transform hover:scale-105">
+              <Button 
+              onClick={handleScrollToSection} className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white hover:from-purple-500 hover:via-pink-600 hover:to-red-600 text-lg px-10 py-6 rounded-full transition-all duration-300 transform hover:scale-105">
                 Create Your Vault
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
