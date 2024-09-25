@@ -44,7 +44,8 @@ export default function MainSection() {
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
         toast({
-          title: "Click A Currency Name",
+          title: "Choose A Currency",
+          description: "Click on either Solana or Ethereum to create a wallet",
         })
       }
     };
