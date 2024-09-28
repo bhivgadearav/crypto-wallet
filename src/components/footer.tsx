@@ -18,7 +18,7 @@ export default function Footer() {
               <Github className="h-6 w-6 text-pink-500" />
               <span className="sr-only bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">GitHub</span>
             </Link>
-            <Link href="mailto:bhivgadearav@gmail.com" className="hover:text-[#ffa2b6]">
+            <Link href="mailto:bhivgadearav0@gmail.com" className="hover:text-[#ffa2b6]">
               <Mail className="h-6 w-6 text-pink-500" />
               <span className="sr-only bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">Email</span>
             </Link>
