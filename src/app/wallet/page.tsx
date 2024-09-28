@@ -115,7 +115,9 @@ export default function MainSection() {
                 Welcome to Nebula Vault
               </h2>
               <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-                Experience the future of cryptocurrency management with unparalleled security and elegance.
+              THIS WEBSITE IS FOR DEMONSTRATION PURPOSES ONLY. 
+              DO NOT USE CRYPTOGRAPHIC KEYS OR PHRASES THAT HAVE REAL SOL OR ETH.
+              MAKE A DUMMY WALLET TO TEST OUT THE FUNCTIONALITY.
               </p>
               {["Solana", "Ethereum"].map((crypto) => (
                 <Button
